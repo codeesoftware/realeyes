@@ -8,4 +8,16 @@
     <ProjectReference Include="..\Realeyes.Domain\Realeyes.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Infrastructure\" />
+    <Folder Include="Sessions\Queries\" />
+    <Folder Include="Surveys\Commands\" />
+    <Folder Include="Surveys\Queries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Boxed.Mapping" Version="5.3.0" />
+    <PackageReference Include="MediatR" Version="9.0.0" />
+  </ItemGroup>
+
 </Project>

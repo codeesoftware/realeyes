@@ -1,3 +1,4 @@
+using Autofac;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -54,6 +55,10 @@ namespace Realeyes.Api
               c.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
           });
         }
-     
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            Boostrap.RegisterAssemblyModulesen(builder);
+        }
+
     }
 }
