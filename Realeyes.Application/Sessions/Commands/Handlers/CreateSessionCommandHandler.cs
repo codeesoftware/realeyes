@@ -39,7 +39,8 @@ namespace Realeyes.Application.Sessions.Commands.Handlers
             }
             if(survey == null)
             {
-                //exception
+                throw new InvalidOperationException($"Cannot found survey! surveyId: {request.SurveryId.Value}");
+
             }
             var sesssion = new Session()
             {
