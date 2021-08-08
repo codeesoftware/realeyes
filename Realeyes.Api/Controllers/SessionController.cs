@@ -9,7 +9,7 @@ namespace Realeyes.Api.Controllers
 {
     [ApiController]
     [Route("api/sessions")]
-    public class SessionController
+    public class SessionController: ControllerBase
     {
         private readonly IMediator mediator;
 
@@ -19,10 +19,10 @@ namespace Realeyes.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<SessionDTO>> Create([FromBody] Guid? surveyId)
+        public async Task<ActionResult<SessionDTO>> Create([FromBody] Guid? surveyId = null)
         {
             SessionDTO result = await mediator.Send(new CreateSessionCommand(surveyId));
-            return (result);
+            return Ok(result);
         }
     }
 }

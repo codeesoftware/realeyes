@@ -12,7 +12,6 @@
     <Folder Include="Infrastructure\" />
     <Folder Include="Sessions\Queries\" />
     <Folder Include="Surveys\Commands\" />
-    <Folder Include="Surveys\Queries\" />
   </ItemGroup>
 
   <ItemGroup>

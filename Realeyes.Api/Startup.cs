@@ -21,7 +21,10 @@ namespace Realeyes.Api
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+            services.AddControllers(options =>
+            {
+                options.AllowEmptyInputInBodyModelBinding = true;
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Realeyes.Api", Version = "v1" });
@@ -38,7 +41,7 @@ namespace Realeyes.Api
             }
             app.UseRouting();
 
-        //   app.UseHttpsRedirection();
+            //   app.UseHttpsRedirection();
 
 
             app.UseAuthorization();
