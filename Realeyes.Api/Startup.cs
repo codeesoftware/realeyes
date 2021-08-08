@@ -10,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Realeyes.Infrastructure.IOCs;
+using Serilog;
 
 namespace Realeyes.Api
 {
@@ -51,7 +52,7 @@ namespace Realeyes.Api
                 logger.LogError(exception, "Server error!");
                 await context.Response.WriteAsJsonAsync(new { error = exception.Message, data = exception.Data });
             }));
-
+            app.UseSerilogRequestLogging();
             app.UseRouting();
 
             //   app.UseHttpsRedirection();

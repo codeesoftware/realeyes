@@ -4,10 +4,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Realeyes.Application.DTOs;
 using Realeyes.Application.Interfaces.Repositories;
+using Realeyes.Application.Interfaces.Triggers;
 using Realeyes.Application.Mappers;
 using Realeyes.Domain.Models;
 using Realeyes.Infrastructure.Data;
 using Realeyes.Infrastructure.Repositories;
+using Realeyes.Infrastructure.Triggers;
 
 namespace Realeyes.Infrastructure.IOCs
 {
@@ -38,6 +40,10 @@ namespace Realeyes.Infrastructure.IOCs
 
             builder.RegisterGeneric(typeof(Repository<>)).As(typeof(IRepository<>))
                 .InstancePerLifetimeScope();
+
+            builder.RegisterType<SessionTrigger>()
+           .As<ISessionTrigger>()
+           .InstancePerLifetimeScope();
         }
 
     }
