@@ -12,7 +12,7 @@ using Realeyes.Domain.Models;
 
 namespace Realeyes.Application.Sessions.Commands.Handlers
 {
-    class CompleteSessionCommandHandler : IRequestHandler<CompleteSessionCommand, SessionDTO>
+    public class CompleteSessionCommandHandler : IRequestHandler<CompleteSessionCommand, SessionDTO>
     {
         private readonly IMapper<Session, SessionDTO> mapper;
         private readonly IRepository<Session> sessionRepository;

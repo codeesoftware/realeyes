@@ -11,7 +11,7 @@ using Realeyes.Domain.Models;
 
 namespace Realeyes.Application.Sessions.Commands.Handlers
 {
-    class CreateSessionCommandHandler : IRequestHandler<CreateSessionCommand, SessionDTO>
+    public class CreateSessionCommandHandler : IRequestHandler<CreateSessionCommand, SessionDTO>
     {
         private readonly IMapper<Session, SessionDTO> mapper;
         private readonly IRepository<Survey> surveryRepository;

@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Realeyes.Application", "Rea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Realeyes.Infrastructure", "Realeyes.Infrastructure\Realeyes.Infrastructure.csproj", "{FCA153FC-A6B8-49B1-810D-C5A443738C0E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Realeyes.Application.Test", "Realeyes.Application.Test\Realeyes.Application.Test.csproj", "{86B33499-36FD-4B2F-9FBC-BDDE02AD8EEF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{FCA153FC-A6B8-49B1-810D-C5A443738C0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCA153FC-A6B8-49B1-810D-C5A443738C0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCA153FC-A6B8-49B1-810D-C5A443738C0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86B33499-36FD-4B2F-9FBC-BDDE02AD8EEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86B33499-36FD-4B2F-9FBC-BDDE02AD8EEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86B33499-36FD-4B2F-9FBC-BDDE02AD8EEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86B33499-36FD-4B2F-9FBC-BDDE02AD8EEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{448B04EF-D147-477F-AD86-294C89E85888} = {45F6B3E4-B748-4E61-B025-15FFF0AF5BC7}
 		{5BDDC9D8-C342-4356-9E7D-AF0436D37840} = {45F6B3E4-B748-4E61-B025-15FFF0AF5BC7}
 		{FCA153FC-A6B8-49B1-810D-C5A443738C0E} = {45F6B3E4-B748-4E61-B025-15FFF0AF5BC7}
+		{86B33499-36FD-4B2F-9FBC-BDDE02AD8EEF} = {60DF6983-0EF9-4F32-8A25-A68660E2B896}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EBFF4AFC-F0E2-449F-B9CE-2AF1DA43A855}
