@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Realeyes.Domain.Enums;
 
 namespace Realeyes.Application.DTOs
@@ -9,5 +7,7 @@ namespace Realeyes.Application.DTOs
     {
         public Guid SurveyId { get; set; }
         public States States { get; set; }
+        public DateTime? UpdatedOn { get; set; }
+
     }
 }

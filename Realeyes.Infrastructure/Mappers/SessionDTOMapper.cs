@@ -13,6 +13,7 @@ namespace Realeyes.Application.Mappers
             destination.Id = source.Id;
             destination.States = source.States;
             destination.SurveyId = source.SurveyId;
+            destination.UpdatedOn = source.UpdatedOn;
         }
     }
 }
