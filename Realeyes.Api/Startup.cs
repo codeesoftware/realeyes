@@ -1,3 +1,4 @@
+using System;
 using Autofac;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
@@ -6,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Realeyes.Infrastructure.IOCs;
 
@@ -41,12 +43,13 @@ namespace Realeyes.Api
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseExceptionHandler(a => a.Run(async context =>
+            app.UseExceptionHandler(configure => configure.Run(async context =>
             {
                 var exceptionHandlerPathFeature = context.Features.Get<IExceptionHandlerPathFeature>();
-                var exception = exceptionHandlerPathFeature.Error;
-
-                await context.Response.WriteAsJsonAsync(new { error = exception.Message });
+                Exception exception = exceptionHandlerPathFeature.Error;
+                var logger =context.RequestServices.GetService<ILogger<Exception>>();
+                logger.LogError(exception, "Server error!");
+                await context.Response.WriteAsJsonAsync(new { error = exception.Message, data = exception.Data });
             }));
 
             app.UseRouting();

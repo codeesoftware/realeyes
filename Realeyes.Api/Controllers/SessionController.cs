@@ -29,20 +29,20 @@ namespace Realeyes.Api.Controllers
             {
                 return BadRequest();
             }
-            return new ObjectResult(result) { StatusCode = StatusCodes.Status201Created };
+            return Ok(result);
         }
 
         [HttpPut("{id}/start")]
-        public async Task<ActionResult<SessionDTO>> Start([FromBody] Guid surveyId)
+        public async Task<ActionResult<SessionDTO>> Start(Guid id)
         {
-            SessionDTO result = await mediator.Send(new StartSessionCommand(surveyId));
+            SessionDTO result = await mediator.Send(new StartSessionCommand(id));
             return Ok(result);
         }
 
         [HttpPut("{id}/complete")]
-        public async Task<ActionResult<SessionDTO>> Complete([FromBody] Guid surveyId)
+        public async Task<ActionResult<SessionDTO>> Complete( Guid id)
         {
-            SessionDTO result = await mediator.Send(new CompleteSessionCommand(surveyId));
+            SessionDTO result = await mediator.Send(new CompleteSessionCommand(id));
             return Ok(result);
         }
     }

@@ -3,7 +3,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using Boxed.Mapping;
 using MediatR;
+using Microsoft.Extensions.Logging;
 using Realeyes.Application.DTOs;
+using Realeyes.Application.Exceptions;
 using Realeyes.Application.Interfaces.Repositories;
 using Realeyes.Domain.Models;
 
@@ -13,13 +15,18 @@ namespace Realeyes.Application.Sessions.Commands.Handlers
     {
         private readonly IMapper<Session, SessionDTO> mapper;
         private readonly IRepository<Survey> surveryRepository;
+        private readonly ILogger<CreateSessionCommandHandler> logger;
         private readonly IRepository<Session> sessionRepository;
 
-        public CreateSessionCommandHandler(IMapper<Session, SessionDTO> mapper, IRepository<Session> sessionRepository, IRepository<Survey> surveryRepository)
+        public CreateSessionCommandHandler(IMapper<Session, SessionDTO> mapper,
+            IRepository<Session> sessionRepository,
+            IRepository<Survey> surveryRepository,
+            ILogger<CreateSessionCommandHandler> logger)
         {
             this.mapper = mapper;
-            this.surveryRepository = surveryRepository;
             this.sessionRepository = sessionRepository;
+            this.surveryRepository = surveryRepository;
+            this.logger = logger;
         }
         public async Task<SessionDTO> Handle(CreateSessionCommand request, CancellationToken cancellationToken)
         {
@@ -30,7 +37,7 @@ namespace Realeyes.Application.Sessions.Commands.Handlers
             {
                 survey = new Survey()
                 {
-                    CreatedOn = now,
+                    CreatedOn = now,                    
                 };
             }
             else
@@ -39,20 +46,19 @@ namespace Realeyes.Application.Sessions.Commands.Handlers
             }
             if(survey == null)
             {
-                throw new InvalidOperationException($"Cannot found survey! surveyId: {request.SurveryId.Value}");
-
+                throw new SurveyException($"Cannot found survey!",request.SurveryId.Value);
             }
-            var sesssion = new Session()
+            var session = new Session()
             {
                 CreatedOn = now,
                 States = Domain.Enums.States.New,
                 Survey = survey
             };
 
-            await sessionRepository.InsertAsync(sesssion);
+            await sessionRepository.InsertAsync(session);
             await sessionRepository.SaveAsync();
-
-            var result = this.mapper.Map(sesssion);
+            logger.LogInformation("Session has just been created!", session);
+            var result = this.mapper.Map(session);
             return result;
         }
     }
