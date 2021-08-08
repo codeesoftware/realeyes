@@ -6,7 +6,6 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyModel;
 
 namespace Realeyes.Infrastructure.IOCs
 {
@@ -20,7 +19,7 @@ namespace Realeyes.Infrastructure.IOCs
             assemblies = GetAssemblies();
             services.AddMediatR(assemblies);
             builder.Populate(services);
-        //    builder.RegisterAssemblyModules(assemblies);
+            //    builder.RegisterAssemblyModules(assemblies);
 
         }
 
@@ -31,20 +30,31 @@ namespace Realeyes.Infrastructure.IOCs
         }
         public static Assembly[] GetAssemblies()
         {
+            var result = new List<Assembly>();
+            var loadedAssemblies = new HashSet<string>();
+            var assembliesToCheck = new Queue<Assembly>();
 
-            HashSet<Assembly> assemblies = new HashSet<Assembly>();
+            assembliesToCheck.Enqueue(Assembly.GetEntryAssembly());
 
-            IReadOnlyList<CompilationLibrary> dependencies = DependencyContext.Default.CompileLibraries;
-            foreach (CompilationLibrary library in dependencies)
+            while (assembliesToCheck.Any())
             {
-                if (library.Name.Contains("Realeyes",StringComparison.OrdinalIgnoreCase))
+
+                var assemblyToCheck = assembliesToCheck.Dequeue();
+                foreach (var reference in assemblyToCheck
+                    .GetReferencedAssemblies()
+                    .Where(a => a.FullName.Contains("Realeyes", StringComparison.OrdinalIgnoreCase)))
                 {
-                    var assembly = Assembly.Load(new AssemblyName(library.Name));
-                    assemblies.Add(assembly);
+                    if (!loadedAssemblies.Contains(reference.FullName))
+                    {
+                        var assembly = Assembly.Load(reference);
+                        assembliesToCheck.Enqueue(assembly);
+                        loadedAssemblies.Add(reference.FullName);
+                        result.Add(assembly);
+                    }
                 }
             }
 
-            return assemblies.ToArray();
+            return result.ToArray();
         }
     }
 }
