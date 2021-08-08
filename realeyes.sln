@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Realeyes.Api", "Realeyes.Api\Realeyes.Api.csproj", "{34A7F72F-856B-4717-BFCA-E3310C8CB57D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{45F6B3E4-B748-4E61-B025-15FFF0AF5BC7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{352B54E3-7941-4BFD-AA12-4D135D3E13F4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{60DF6983-0EF9-4F32-8A25-A68660E2B896}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Realeyes.Domain", "Realeyes.Domain\Realeyes.Domain.csproj", "{448B04EF-D147-477F-AD86-294C89E85888}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Realeyes.Application", "Realeyes.Application\Realeyes.Application.csproj", "{5BDDC9D8-C342-4356-9E7D-AF0436D37840}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Realeyes.Infrastructure", "Realeyes.Infrastructure\Realeyes.Infrastructure.csproj", "{FCA153FC-A6B8-49B1-810D-C5A443738C0E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34A7F72F-856B-4717-BFCA-E3310C8CB57D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34A7F72F-856B-4717-BFCA-E3310C8CB57D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34A7F72F-856B-4717-BFCA-E3310C8CB57D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34A7F72F-856B-4717-BFCA-E3310C8CB57D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{448B04EF-D147-477F-AD86-294C89E85888}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{448B04EF-D147-477F-AD86-294C89E85888}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{448B04EF-D147-477F-AD86-294C89E85888}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{448B04EF-D147-477F-AD86-294C89E85888}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BDDC9D8-C342-4356-9E7D-AF0436D37840}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BDDC9D8-C342-4356-9E7D-AF0436D37840}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BDDC9D8-C342-4356-9E7D-AF0436D37840}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BDDC9D8-C342-4356-9E7D-AF0436D37840}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCA153FC-A6B8-49B1-810D-C5A443738C0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCA153FC-A6B8-49B1-810D-C5A443738C0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCA153FC-A6B8-49B1-810D-C5A443738C0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCA153FC-A6B8-49B1-810D-C5A443738C0E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{34A7F72F-856B-4717-BFCA-E3310C8CB57D} = {45F6B3E4-B748-4E61-B025-15FFF0AF5BC7}
+		{448B04EF-D147-477F-AD86-294C89E85888} = {45F6B3E4-B748-4E61-B025-15FFF0AF5BC7}
+		{5BDDC9D8-C342-4356-9E7D-AF0436D37840} = {45F6B3E4-B748-4E61-B025-15FFF0AF5BC7}
+		{FCA153FC-A6B8-49B1-810D-C5A443738C0E} = {45F6B3E4-B748-4E61-B025-15FFF0AF5BC7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EBFF4AFC-F0E2-449F-B9CE-2AF1DA43A855}
+	EndGlobalSection
+EndGlobal
